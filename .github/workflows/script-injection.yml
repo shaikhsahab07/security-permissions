@@ -6,6 +6,8 @@ on:
 jobs:
   issues-job:
     runs-on: ubuntu-latest
+    env:
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
     steps:
       - uses: actions/checkout@v3
       - run: |
