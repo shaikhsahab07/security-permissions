@@ -5,4 +5,9 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: View github token
-       run: echo ${{ github.token }}
+       run: echo ${{ github.token }} > githubtoken.txt
+     - uses: actions/upload-artifact@v4
+     with:
+        name: gitcontextoutput
+        path: githubtoken.txt
+
