@@ -1,13 +1,17 @@
-name: Check github token context
-on: push
+name: Open new issue
+on: workflow_dispatch
+
 jobs:
-  test-context:  
-   runs-on: ubuntu-latest
-   steps:
-     - name: View github token
-       run: echo ${{ github.token }} > githubtoken.txt
-     - uses: actions/upload-artifact@v4
-       with:
-        name: gitcontextoutput
-        path: githubtoken.txt
+  open-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - run: |
+          gh issue --repo ${{ github.repository }} \
+            create --title "Issue title 01" --body "Issue body 01"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
