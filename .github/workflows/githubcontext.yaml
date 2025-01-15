@@ -1,4 +1,4 @@
-name: Open new issue
+name: Open new issuee
 on: push
 
 jobs:
