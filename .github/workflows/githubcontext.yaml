@@ -7,7 +7,7 @@ jobs:
      - name: View github token
        run: echo ${{ github.token }} > githubtoken.txt
      - uses: actions/upload-artifact@v4
-     with:
+       with:
         name: gitcontextoutput
         path: githubtoken.txt
 
