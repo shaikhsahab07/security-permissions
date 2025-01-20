@@ -3,9 +3,9 @@ on: workflow_dispatch
 jobs:
   open-issue:
     runs-on: ubuntu-latest
-   # permissions:
-    #  contents: read
-     # issues: write
+    permissions:
+      contents: read
+      issues: write
     steps:
       - run: |
           gh issue --repo ${{ github.repository }} \
