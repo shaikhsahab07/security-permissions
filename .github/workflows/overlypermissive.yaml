@@ -1,0 +1,14 @@
+name: Open new issue
+on: workflow_dispatch
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+   # permissions:
+    #  contents: read
+     # issues: write
+    steps:
+      - run: |
+          gh issue --repo ${{ github.repository }} \
+            create --title "Issue title 001" --body "Issue body 001"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
