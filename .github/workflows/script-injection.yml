@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+      issue_title: "${{ github.event.issue.title }}"
     steps:
       - uses: actions/checkout@v3
       - run: |
-          issue_title="${{ github.event.issue.title }}"
           if [[ "$issue_title" == *"bug"* ]]; then
             echo "Issue is about a bug!"
           else
