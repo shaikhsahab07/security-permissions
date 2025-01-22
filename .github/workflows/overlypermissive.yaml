@@ -1,3 +1,4 @@
+#Just a comment
 name: Open new issue
 on: push
 jobs:
